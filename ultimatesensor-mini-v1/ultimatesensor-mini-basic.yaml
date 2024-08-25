@@ -381,7 +381,16 @@ sensor:
     id: zone4_target_count
     accuracy_decimals: 0
     disabled_by_default: true
-
+#C02 Manual calibration
+button:
+  - platform: template
+    name: "CO2 manual calibration(Only in Fresh Air for atleast 20 minutes"
+    entity_category: "config"
+    on_press:
+      then:
+      - scd4x.perform_forced_calibration:
+          value: 419
+          #id: co2
 globals:
   - id: mmwave_update_time
     type: unsigned long
